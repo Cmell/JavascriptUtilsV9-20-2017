@@ -514,3 +514,18 @@ if(![].indexOf){
         return -1;
     }
 }
+
+// A function for preloading images with css parameters.
+function preloadResizedImages (imgArr) {
+  // Image array should be an array of arrays. The first item in each array
+  // should be a filename, and the second should be an array with width & height
+  var retImgs = [];
+  for (var i = 0; i < imgArr.length; i++) {
+    img = new Image();
+    img.src = imgArr[i][0];
+    img.width = imgArr[i][1][0];
+    img.height = imgArr[i][1][1];
+    retImgs[i] = img;
+  }
+  return(retImgs);
+}
