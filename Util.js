@@ -523,8 +523,10 @@ function preloadResizedImages (imgArr) {
   for (var i = 0; i < imgArr.length; i++) {
     img = new Image();
     img.src = imgArr[i][0];
-    img.width = imgArr[i][1][0];
-    img.height = imgArr[i][1][1];
+    if (Array.isArray(imgArr[i])) {
+      img.width = imgArr[i][1][0];
+      img.height = imgArr[i][1][1];
+    }
     retImgs[i] = img;
   }
   return(retImgs);
